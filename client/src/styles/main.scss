@@ -1,0 +1,20 @@
+// Точка сборки всех стилей. Порядок подключения важен для каскада:
+// сначала база/сброс, затем раскладка, затем компоненты.
+// Абстракции (переменные, миксины) подключаются внутри партиалов
+// через @use и не дают вывода CSS сами по себе.
+
+@use 'base/reset';
+@use 'base/base';
+@use 'base/typography';
+
+@use 'layout/container';
+@use 'layout/header';
+@use 'layout/footer';
+
+@use 'components/buttons';
+@use 'components/hero';
+@use 'components/about';
+@use 'components/approach';
+@use 'components/projects';
+@use 'components/form';
+@use 'components/assistant';

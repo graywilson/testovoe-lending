@@ -1,0 +1,16 @@
+// Sass-переменные: используются в миксинах и в местах, где нужны вычисления
+// на этапе сборки (брейкпоинты, предельная ширина контейнера, шрифты).
+// Цвета и прочие токены оформления живут как CSS-переменные в base/_base.scss.
+
+// Брейкпоинты (mobile-first, min-width)
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+// Сетка
+$container-max: 1140px;
+
+// Шрифты
+$font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+$font-display: 'Space Grotesk', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;

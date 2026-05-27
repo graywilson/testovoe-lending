@@ -1,0 +1,107 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.approach {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+
+  @include media(lg) {
+    grid-template-columns: 1.3fr 1fr;
+    align-items: start;
+  }
+
+  // Шаги подхода
+  &__steps {
+    display: grid;
+    gap: 0.9rem;
+
+    @include media(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__step {
+    @include card-surface;
+    padding: 1.4rem;
+    position: relative;
+    overflow: hidden;
+
+    h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+    p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+  }
+
+  &__num {
+    display: block;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 1.4rem;
+    background: var(--accent-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.6rem;
+  }
+}
+
+// Блок «AI в работе»
+.ai-note {
+  @include card-surface;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  background:
+    radial-gradient(30rem 16rem at 100% 0%, var(--accent-soft), transparent 60%),
+    var(--surface);
+  border-color: var(--border-strong);
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__icon {
+    width: 26px;
+    height: 26px;
+    color: var(--accent);
+  }
+
+  &__lead {
+    color: var(--text);
+    margin-bottom: 1.1rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.4rem;
+
+    li {
+      position: relative;
+      padding-left: 1.4rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.55em;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+    }
+  }
+}

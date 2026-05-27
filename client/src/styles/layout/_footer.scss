@@ -1,0 +1,42 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding-block: 2.5rem;
+  background: var(--bg-elev);
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__copy {
+    font-family: $font-display;
+    font-weight: 600;
+  }
+
+  &__made {
+    color: var(--muted);
+    font-size: 0.88rem;
+    max-width: 46ch;
+  }
+
+  &__links {
+    display: flex;
+    gap: 1.1rem;
+
+    a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+}

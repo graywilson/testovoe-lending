@@ -1,0 +1,140 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.hero {
+  position: relative;
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(3rem, 7vw, 5.5rem);
+  overflow: hidden;
+
+  // Декоративное свечение за заголовком
+  &__bg {
+    position: absolute;
+    inset: -20% -10% auto -10%;
+    height: 70%;
+    background:
+      radial-gradient(40rem 28rem at 70% 20%, rgba(16, 185, 129, 0.16), transparent 60%),
+      radial-gradient(34rem 24rem at 20% 0%, rgba(14, 165, 233, 0.16), transparent 60%);
+    filter: blur(8px);
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.45rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1.4rem;
+  }
+
+  &__badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 4px var(--success-soft);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  &__title {
+    font-size: clamp(2.6rem, 1.5rem + 6vw, 5rem);
+    line-height: 1.02;
+    margin-bottom: 0.6rem;
+  }
+
+  &__role {
+    font-family: $font-display;
+    font-size: clamp(1.1rem, 0.9rem + 1.4vw, 1.7rem);
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 1.3rem;
+  }
+
+  &__lead {
+    max-width: 60ch;
+    color: var(--muted);
+    font-size: clamp(1rem, 0.95rem + 0.4vw, 1.18rem);
+    margin-bottom: 2.2rem;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-bottom: 3rem;
+  }
+
+  // Статистика
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    margin: 0 0 2.5rem;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+
+    @include media(md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+
+    li {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-family: $font-display;
+    }
+  }
+}
+
+.stat {
+  padding: 1.3rem 1.4rem;
+  background: var(--bg);
+
+  &__num {
+    font-family: $font-display;
+    font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1;
+    background: var(--accent-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  &__label {
+    margin-top: 0.4rem;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--success-soft);
+  }
+  50% {
+    box-shadow: 0 0 0 6px transparent;
+  }
+}

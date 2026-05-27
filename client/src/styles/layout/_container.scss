@@ -1,0 +1,40 @@
+@use '../abstracts/mixins' as *;
+
+.container {
+  @include container;
+}
+
+// Вертикальные отступы секций
+.section {
+  padding-block: clamp(3.5rem, 6vw, 7rem);
+  position: relative;
+  // Чтобы якорные переходы не прятались под липкой шапкой
+  scroll-margin-top: calc(var(--header-h) + 8px);
+
+  &--alt {
+    background: var(--bg-elev);
+    border-block: 1px solid var(--border);
+  }
+}
+
+.section__head {
+  max-width: 60ch;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+// Появление блоков при скролле (управляется IntersectionObserver в TS).
+// Прячем элементы только если JS включён (на <html> есть класс .js) —
+// иначе контент остаётся видимым при отключённом/упавшем JS.
+.js .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

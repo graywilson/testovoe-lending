@@ -1,0 +1,17 @@
+{
+  "name": "testovoe-lending",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Лендинг-портфолио: Vite + TypeScript + SCSS (фронтенд), Node.js/Express (API), AI на Groq, упаковка в Docker.",
+  "license": "MIT",
+  "scripts": {
+    "setup": "npm install && npm --prefix server install && npm --prefix client install",
+    "dev": "concurrently -n server,client -c green,cyan \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix client run build && npm --prefix server run build",
+    "start": "npm --prefix server run start",
+    "typecheck": "npm --prefix server run typecheck && npm --prefix client run typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

@@ -1,0 +1,19 @@
+# Запуск всего проекта одной командой:
+#   docker compose up -d --build
+#
+# Контейнер слушает порт 41321 (фронтенд + API на одном origin).
+# Секреты (SMTP, ключ Groq) подтягиваются из .env через env_file.
+
+services:
+  app:
+    build: .
+    image: vadim-portfolio
+    container_name: vadim-portfolio
+    ports:
+      - "41321:41321"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: "41321"
+    restart: unless-stopped

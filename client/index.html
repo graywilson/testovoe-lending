@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0f1a" />
+  <title>Вадим Искаков — Fullstack-разработчик · информационные системы и AI</title>
+  <meta
+    name="description"
+    content="Вадим Искаков — fullstack-разработчик: веб-сервисы, API и интеграции, AI-инструменты. Продакшн-проекты, опубликованные приложения, 4+ года практики."
+  />
+
+  <!-- Open Graph для красивых превью при шеринге ссылки -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Вадим Искаков — Fullstack-разработчик" />
+  <meta
+    property="og:description"
+    content="Веб-сервисы, API и интеграции, AI. Продакшн-проекты и опубликованные приложения."
+  />
+  <meta property="og:locale" content="ru_RU" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Помечаем, что JS включён: тогда CSS прячет .reveal-блоки до анимации.
+       Без JS контент остаётся видимым (прогрессивное улучшение). -->
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+
+  <!-- Шрифты: Space Grotesk для заголовков, Inter для текста -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- Ссылка для доступности: перейти сразу к контенту с клавиатуры -->
+  <a class="skip-link" href="#hero">Перейти к содержимому</a>
+
+  <!-- ШАПКА -->
+  <header class="site-header" id="siteHeader">
+    <div class="site-header__inner container">
+      <a class="logo" href="#hero" aria-label="В начало">
+        <span class="logo__mark" aria-hidden="true">ВИ</span>
+        <span class="logo__text">Вадим Искаков</span>
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Основная навигация">
+        <a class="nav__link" href="#about">Обо мне</a>
+        <a class="nav__link" href="#approach">Как работаю</a>
+        <a class="nav__link" href="#projects">Проекты</a>
+        <a class="nav__link" href="#contact">Контакты</a>
+        <a class="btn btn--primary btn--sm nav__cta" href="#contact">Обсудить задачу</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Меню" aria-expanded="false" aria-controls="primaryNav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <p class="hero__badge reveal">
+          <span class="hero__badge-dot" aria-hidden="true"></span>
+          Открыт к предложениям · удалёнка / переезд
+        </p>
+        <h1 class="hero__title reveal">Вадим Искаков</h1>
+        <p class="hero__role reveal">
+          Fullstack-разработчик · <span class="grad-text">информационные системы и&nbsp;AI-интеграции</span>
+        </p>
+        <p class="hero__lead reveal">
+          Делаю веб-сервисы целиком: фронтенд, API и интеграции. Внедряю AI и&nbsp;в продукт,
+          и&nbsp;в сам процесс разработки. 4+&nbsp;года практики, продакшн-проекты
+          и&nbsp;опубликованные приложения.
+        </p>
+
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="#contact">Обсудить задачу</a>
+          <button class="btn btn--ghost" type="button" data-open-assistant>
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+              <path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15l-1.9-4.1L5.5 9l4.6-1.4L12 3z" fill="currentColor"/>
+              <circle cx="18" cy="17" r="1.4" fill="currentColor"/>
+              <circle cx="6" cy="15" r="1" fill="currentColor"/>
+            </svg>
+            Спросить AI обо мне
+          </button>
+        </div>
+
+        <dl class="hero__stats reveal">
+          <div class="stat">
+            <dt class="stat__num">4+</dt>
+            <dd class="stat__label">года в разработке</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__num">13</dt>
+            <dd class="stat__label">приложений в Google Play</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__num">3</dt>
+            <dd class="stat__label">продакшн-сервиса</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__num">4.8</dt>
+            <dd class="stat__label">средний балл в вузе</dd>
+          </div>
+        </dl>
+
+        <ul class="hero__tech reveal" aria-label="Ключевые технологии">
+          <li>TypeScript</li>
+          <li>Node.js</li>
+          <li>C# / .NET</li>
+          <li>Python</li>
+          <li>REST API</li>
+          <li>PostgreSQL</li>
+          <li>Docker</li>
+          <li>AI API</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ОБО МНЕ -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">01 — Обо мне</p>
+          <h2 class="section__title">Инженер, который доводит задачи до&nbsp;продакшена</h2>
+        </header>
+
+        <div class="about">
+          <div class="about__bio reveal">
+            <p>
+              Я разрабатываю информационные системы и&nbsp;веб-сервисы с&nbsp;2016&nbsp;года&nbsp;— от&nbsp;вёрстки
+              и&nbsp;фронтенда до&nbsp;API, баз данных и&nbsp;внешних интеграций. Люблю задачи, где нужно
+              быстро разобраться в&nbsp;чужом коде, навести порядок и&nbsp;довести до&nbsp;результата.
+            </p>
+            <p>
+              Работал и&nbsp;в&nbsp;коммерческой разработке (сервис аренды жилья на&nbsp;ASP.NET&nbsp;Core),
+              и&nbsp;над собственными продуктами (соцсеть, анонимный чат, цифровая библиотека),
+              и&nbsp;преподавал программирование. Сейчас заканчиваю ПетрГУ по&nbsp;специальности
+              «Информационные системы и&nbsp;технологии».
+            </p>
+            <p>
+              Отдельно мне интересны <strong>AI-интеграции</strong>: и&nbsp;как фича внутри продукта,
+              и&nbsp;как ускоритель работы. Этот сайт&nbsp;— небольшая демонстрация такого подхода.
+            </p>
+
+            <h3 class="about__subtitle">Направления</h3>
+            <ul class="chips">
+              <li class="chip">Веб-разработка (fullstack)</li>
+              <li class="chip">Информационные системы</li>
+              <li class="chip">API и интеграции</li>
+              <li class="chip">AI-интеграции</li>
+              <li class="chip">Realtime (SignalR)</li>
+              <li class="chip">Геймдев (Unity)</li>
+            </ul>
+          </div>
+
+          <!-- Сетка стека рендерится из данных в TS -->
+          <div class="about__stack reveal">
+            <h3 class="about__subtitle">Стек</h3>
+            <div class="stack-grid" id="stackGrid"></div>
+          </div>
+        </div>
+
+        <!-- Таймлайн опыта -->
+        <h3 class="about__subtitle about__subtitle--center reveal">Опыт работы</h3>
+        <ol class="timeline">
+          <li class="timeline__item reveal">
+            <span class="timeline__period">2019 — 2020</span>
+            <h4 class="timeline__role">Разработчик ИС · Техномедия</h4>
+            <p class="timeline__text">
+              Веб-сервисы на ASP.NET Core MVC, проектирование REST API, документация по ГОСТ 34,
+              BPMN-моделирование, миграция legacy-проектов на новый стек, общение с заказчиками.
+            </p>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__period">~1.5 года · коммерческий проект</span>
+            <h4 class="timeline__role">Веб-разработчик ИС · сервис аренды жилья</h4>
+            <p class="timeline__text">
+              Миграция ASP.NET MVC → Core. Ускорил загрузку с 1–2&nbsp;с до 200–800&nbsp;мс,
+              внедрил локализацию (финский, шведский) и оплату в евро с корректными
+              фискальными чеками (Робокасса), написал админ-панель с нуля.
+            </p>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__period">2022 — 2024</span>
+            <h4 class="timeline__role">Преподаватель · АкадемияTOP</h4>
+            <p class="timeline__text">
+              Python, C++, C#, разработка Android- и Windows-приложений, веб (HTML/CSS),
+              подготовка к ЕГЭ по информатике. Группы детей и взрослых.
+            </p>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__period">2016 — 2017</span>
+            <h4 class="timeline__role">Системный администратор / разработчик сайта · Туризм Карелия</h4>
+            <p class="timeline__text">
+              Разработка и поддержка сайта, автоматизация бизнес-процессов, прикладное ПО,
+              техническая документация и инструкции для сотрудников.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- КАК Я РАБОТАЮ -->
+    <section class="section section--alt" id="approach">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">02 — Как я работаю</p>
+          <h2 class="section__title">Сначала разобраться, потом писать код</h2>
+        </header>
+
+        <div class="approach">
+          <ol class="approach__steps">
+            <li class="approach__step reveal">
+              <span class="approach__num">01</span>
+              <h3>Разобраться в задаче</h3>
+              <p>Уточняю цель и контекст, ищу подводные камни до начала. Не стесняюсь задавать вопросы — это дешевле, чем переделывать.</p>
+            </li>
+            <li class="approach__step reveal">
+              <span class="approach__num">02</span>
+              <h3>Декомпозировать</h3>
+              <p>Большую задачу режу на понятные шаги с проверяемым результатом. Так виден прогресс и проще оценить сроки.</p>
+            </li>
+            <li class="approach__step reveal">
+              <span class="approach__num">03</span>
+              <h3>MVP → итерации</h3>
+              <p>Сначала рабочий каркас, потом улучшения. Раннее «оно работает» снимает риски и даёт быструю обратную связь.</p>
+            </li>
+            <li class="approach__step reveal">
+              <span class="approach__num">04</span>
+              <h3>Тесты и чек-листы</h3>
+              <p>Проверяю граничные случаи и ошибки, а не только «счастливый путь». Чек-листы перед сдачей — обязательны.</p>
+            </li>
+          </ol>
+
+          <aside class="ai-note reveal">
+            <div class="ai-note__head">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" class="ai-note__icon">
+                <path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15l-1.9-4.1L5.5 9l4.6-1.4L12 3z" fill="currentColor"/>
+              </svg>
+              <h3>AI в моей работе</h3>
+            </div>
+            <p class="ai-note__lead">
+              AI — это инструмент-ускоритель, а не замена инженерному мышлению. Я отвечаю за результат,
+              поэтому всё, что предлагает модель, читаю, проверяю и правлю.
+            </p>
+            <ul class="ai-note__list">
+              <li><strong>В процессе:</strong> генерация черновиков и boilerplate, рефакторинг, разбор legacy-кода, генерация тестов, ревью «вторым взглядом».</li>
+              <li><strong>В продукте:</strong> прямо на этом сайте — улучшение текста заявки «волшебной палочкой», AI-анализ входящих обращений и чат-ассистент.</li>
+              <li><strong>Принцип:</strong> AI пишет черновик → я проверяю факты и логику → правлю руками. Контроль и ответственность остаются за мной.</li>
+            </ul>
+            <button class="btn btn--ghost btn--sm" type="button" data-open-assistant>Проверить ассистента →</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПРОЕКТЫ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">03 — Проекты и кейсы</p>
+          <h2 class="section__title">Что я делал и за что отвечал</h2>
+        </header>
+
+        <!-- Карточки проектов рендерятся из данных в TS -->
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ + ФОРМА -->
+    <section class="section section--alt" id="contact">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow">04 — Контакты</p>
+          <h2 class="section__title">Напишите мне</h2>
+          <p class="section__subtitle">
+            Заполните форму — письмо придёт мне и копией вам. Обычно отвечаю в течение дня.
+          </p>
+        </header>
+
+        <div class="contact">
+          <!-- Контактная информация -->
+          <aside class="contact__info reveal">
+            <a class="contact__item" href="mailto:graywilsonwise@gmail.com">
+              <span class="contact__icon" aria-hidden="true">@</span>
+              <span>
+                <span class="contact__label">Email</span>
+                <span class="contact__value">graywilsonwise@gmail.com</span>
+              </span>
+            </a>
+            <a class="contact__item" href="tel:+79116637091">
+              <span class="contact__icon" aria-hidden="true">☎</span>
+              <span>
+                <span class="contact__label">Телефон</span>
+                <span class="contact__value">+7 (911) 663-70-91</span>
+              </span>
+            </a>
+            <a class="contact__item" href="https://t.me/EmeraldTower" target="_blank" rel="noopener">
+              <span class="contact__icon" aria-hidden="true">✈</span>
+              <span>
+                <span class="contact__label">Telegram</span>
+                <span class="contact__value">@EmeraldTower</span>
+              </span>
+            </a>
+            <div class="contact__note">
+              <p>Петрозаводск · GMT+3</p>
+              <p>Готов к удалёнке, гибриду и переезду (СПб, Нижний Новгород).</p>
+            </div>
+          </aside>
+
+          <!-- Форма обратной связи -->
+          <form class="form reveal" id="contactForm" novalidate>
+            <div class="form__row">
+              <div class="field">
+                <label class="field__label" for="name">Имя</label>
+                <input class="field__input" id="name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required />
+                <p class="field__error" data-error-for="name" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="phone">Телефон</label>
+                <input class="field__input" id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required />
+                <p class="field__error" data-error-for="phone" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="email">Email</label>
+              <input class="field__input" id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required />
+              <p class="field__error" data-error-for="email" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <div class="field__labelrow">
+                <label class="field__label" for="comment">Комментарий</label>
+                <!-- AI «волшебная палочка»: переписывает черновик в деловое письмо -->
+                <button class="wand" type="button" id="improveBtn" aria-label="Улучшить текст с помощью AI">
+                  <svg class="wand__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+                    <path d="M5 19l9-9m0 0l1.5-3.5L19 5l-1.5 3.5L14 10zm0 0l-1.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 14l.6 1.4L20 16l-1.4.6L18 18l-.6-1.4L16 16l1.4-.6z" fill="currentColor"/>
+                  </svg>
+                  <span class="wand__label">Улучшить с AI</span>
+                  <span class="wand__spinner" aria-hidden="true"></span>
+                </button>
+              </div>
+              <textarea class="field__input field__textarea" id="comment" name="comment" rows="5" placeholder="Расскажите, чем могу быть полезен" required></textarea>
+              <p class="field__hint" id="wandHint" hidden></p>
+              <p class="field__error" data-error-for="comment" aria-live="polite"></p>
+            </div>
+
+            <button class="btn btn--primary btn--block" type="submit" id="submitBtn">
+              <span class="btn__label">Отправить заявку</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+
+            <!-- Здесь появляется success/error-сообщение -->
+            <p class="form__status" id="formStatus" role="status" aria-live="polite" hidden></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ПОДВАЛ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p class="site-footer__copy">© <span id="year"></span> Вадим Искаков</p>
+      <p class="site-footer__made">
+        Сделано на Vite + TypeScript + SCSS, бэкенд на Node.js, AI на Groq, упаковано в Docker.
+      </p>
+      <div class="site-footer__links">
+        <a href="https://moimoment.ru" target="_blank" rel="noopener">moimoment.ru</a>
+        <a href="https://anonim.space" target="_blank" rel="noopener">anonim.space</a>
+        <a href="https://litra.su" target="_blank" rel="noopener">litra.su</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Точка входа приложения -->
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

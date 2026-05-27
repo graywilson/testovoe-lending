@@ -1,0 +1,152 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  // Полупрозрачный фон с размытием; класс is-scrolled добавляет TS
+  background: rgba(10, 15, 26, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
+
+  &.is-scrolled {
+    background: rgba(10, 15, 26, 0.82);
+    border-bottom-color: var(--border);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+  }
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+
+  &__mark {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: var(--accent-grad);
+    color: #04231a;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    box-shadow: var(--glow);
+  }
+
+  &__text {
+    font-family: $font-display;
+    font-size: 1.02rem;
+
+    @media (max-width: #{$bp-sm - 1px}) {
+      display: none; // на самых узких экранах оставляем только знак
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.9rem);
+
+  &__link {
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &.is-active {
+      color: var(--text);
+    }
+  }
+
+  &__cta {
+    margin-left: 0.3rem;
+  }
+
+  // Мобильное меню: выезжающая панель
+  @media (max-width: #{$bp-lg - 1px}) {
+    position: fixed;
+    inset: var(--header-h) 0 auto 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+    padding: 1rem clamp(1rem, 4vw, 2rem) 1.5rem;
+    background: rgba(10, 15, 26, 0.97);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-130%);
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: var(--shadow);
+
+    &.is-open {
+      transform: translateY(0);
+    }
+
+    .nav__link {
+      padding: 0.85rem 0.5rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.05rem;
+    }
+
+    .nav__cta {
+      margin: 0.75rem 0 0;
+      justify-content: center;
+    }
+  }
+}
+
+// Бургер-кнопка (видна только на мобильных/планшетах)
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+
+  @media (max-width: #{$bp-lg - 1px}) {
+    display: flex;
+  }
+
+  &__bar {
+    height: 2px;
+    width: 100%;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+  }
+
+  // Анимация в «крестик» при открытом меню
+  &[aria-expanded='true'] {
+    .nav-toggle__bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle__bar:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle__bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}

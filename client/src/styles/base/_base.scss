@@ -1,0 +1,98 @@
+@use '../abstracts/variables' as *;
+
+// Дизайн-токены проекта как CSS-переменные — удобно переопределять и читать.
+:root {
+  // Фоны и поверхности (тёмная тема)
+  --bg: #0a0f1a;
+  --bg-elev: #0e1525;
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  // Текст
+  --text: #e7eef6;
+  --muted: #93a3b8;
+
+  // Акценты
+  --accent: #10b981;
+  --accent-2: #0ea5e9;
+  --accent-soft: rgba(16, 185, 129, 0.14);
+  --accent-grad: linear-gradient(135deg, #10b981 0%, #0ea5e9 100%);
+
+  // Статусы
+  --danger: #f87171;
+  --danger-soft: rgba(248, 113, 113, 0.12);
+  --success: #34d399;
+  --success-soft: rgba(52, 211, 153, 0.12);
+
+  // Геометрия
+  --radius-sm: 10px;
+  --radius: 14px;
+  --radius-lg: 20px;
+
+  // Тени
+  --shadow: 0 24px 60px rgba(2, 8, 23, 0.55);
+  --shadow-sm: 0 8px 24px rgba(2, 8, 23, 0.4);
+  --glow: 0 16px 50px rgba(16, 185, 129, 0.22);
+
+  // Шапка
+  --header-h: 68px;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: $font-body;
+  font-size: clamp(15px, 0.95rem + 0.2vw, 17px);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+
+  // Мягкое фоновое свечение и тонкая сетка для «глубины».
+  background-image:
+    radial-gradient(60rem 40rem at 80% -10%, rgba(14, 165, 233, 0.12), transparent 60%),
+    radial-gradient(50rem 40rem at 0% 10%, rgba(16, 185, 129, 0.12), transparent 55%);
+  background-attachment: fixed;
+}
+
+// Акцентный градиентный текст
+.grad-text {
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+// Ссылка «пропустить к контенту»
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  background: var(--accent);
+  color: #05221a;
+  border-radius: 0 0 var(--radius-sm) 0;
+  font-weight: 600;
+
+  &:focus {
+    left: 0;
+  }
+}
+
+// Класс для скрытого текста, доступного скринридерам
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

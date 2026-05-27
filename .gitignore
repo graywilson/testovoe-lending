@@ -1,0 +1,28 @@
+# Зависимости
+node_modules/
+**/node_modules/
+
+# Сборка
+dist/
+**/dist/
+
+# Секреты (в репозиторий не попадают; см. .env.example)
+.env
+**/.env
+!.env.example
+
+# Логи и временное
+*.log
+npm-debug.log*
+.DS_Store
+.cache/
+
+# Редакторы / системное
+.vscode/
+.idea/
+.claude/
+
+# Файлы тестового задания (не часть проекта)
+texttz.txt
+запрос.txt
+testovoezadanie.txt

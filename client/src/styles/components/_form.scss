@@ -1,0 +1,227 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Раскладка блока контактов: инфо + форма
+.contact {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+
+  @include media(lg) {
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: start;
+  }
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contact__item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: var(--accent);
+    transform: translateX(3px);
+  }
+
+  .contact__icon {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 11px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 1.1rem;
+  }
+
+  .contact__label {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .contact__value {
+    display: block;
+    font-weight: 500;
+  }
+}
+
+.contact__note {
+  margin-top: 0.6rem;
+  padding: 1rem 1.1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+
+  p + p {
+    margin-top: 0.4rem;
+  }
+}
+
+// ---------- Форма ----------
+.form {
+  @include card-surface;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+
+  &__row {
+    display: grid;
+    gap: 1.1rem;
+
+    @include media(sm) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__status {
+    margin: 0;
+    padding: 0.95rem 1.1rem;
+    border-radius: var(--radius);
+    font-size: 0.92rem;
+    border: 1px solid transparent;
+
+    &.is-success {
+      background: var(--success-soft);
+      border-color: rgba(52, 211, 153, 0.4);
+      color: var(--success);
+    }
+    &.is-error {
+      background: var(--danger-soft);
+      border-color: rgba(248, 113, 113, 0.4);
+      color: var(--danger);
+    }
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  &__labelrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  &__label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: var(--radius);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &::placeholder {
+      color: #64748b;
+    }
+    &:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  &__error {
+    margin: 0;
+    min-height: 0;
+    font-size: 0.82rem;
+    color: var(--danger);
+  }
+
+  &__hint {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--muted);
+
+    button {
+      color: var(--accent);
+      text-decoration: underline;
+      font-size: inherit;
+    }
+  }
+
+  // Подсветка невалидного поля
+  &.is-invalid {
+    .field__input {
+      border-color: var(--danger);
+      box-shadow: 0 0 0 3px var(--danger-soft);
+    }
+  }
+}
+
+// AI «волшебная палочка»
+.wand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+
+  &:hover:not(:disabled) {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &__icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  &__spinner {
+    display: none;
+    width: 13px;
+    height: 13px;
+    border: 2px solid var(--accent-soft);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: btn-spin 0.7s linear infinite;
+  }
+
+  // Состояние загрузки: прячем иконку, показываем спиннер
+  &.is-loading {
+    .wand__icon {
+      display: none;
+    }
+    .wand__spinner {
+      display: inline-block;
+    }
+  }
+}

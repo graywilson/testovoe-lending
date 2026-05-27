@@ -1,0 +1,19 @@
+{
+  "name": "testovoe-lending-client",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Фронтенд лендинга-портфолио: Vite + TypeScript + SCSS.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "sass": "^1.83.0",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11"
+  }
+}

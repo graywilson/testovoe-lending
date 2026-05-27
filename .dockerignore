@@ -1,0 +1,18 @@
+# Не тащим в контекст сборки лишнее
+**/node_modules
+**/dist
+.git
+.gitignore
+
+# Секреты не запекаем в образ — они приходят в рантайме через env_file (compose)
+.env
+**/.env
+
+# Прочее
+**/*.log
+.DS_Store
+.claude
+texttz.txt
+запрос.txt
+testovoezadanie.txt
+README.md
