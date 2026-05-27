@@ -205,8 +205,8 @@ export function userEmail(lead: LeadData): { subject: string; html: string } {
 
     <p style="margin:0 0 10px;font-size:15px;color:#334155;font-weight:600;">Мои контакты для быстрой связи:</p>
     <p style="margin:0 0 18px;font-size:15px;line-height:1.9;color:#334155;">
-      📧 <a href="mailto:graywilsonwise@gmail.com" style="color:${ACCENT};text-decoration:none;">graywilsonwise@gmail.com</a><br>
-      📱 <a href="tel:+79116637091" style="color:${ACCENT};text-decoration:none;">+7 (911) 663-70-91</a><br>
+      📧 <a href="mailto:waalkerrr232@mail.ru" style="color:${ACCENT};text-decoration:none;">waalkerrr232@mail.ru</a><br>
+      📱 <a href="tel:+79114110163" style="color:${ACCENT};text-decoration:none;">+7 (911) 411-01-63</a><br>
       ✈️ Telegram: <a href="https://t.me/EmeraldTower" style="color:${ACCENT};text-decoration:none;">@EmeraldTower</a>
     </p>
 

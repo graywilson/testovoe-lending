@@ -52,6 +52,6 @@ export const PROFILE_CONTEXT = `
 - Этот сайт-портфолио: Vite + TypeScript + SCSS на фронте, Node.js/Express на бэке,
   AI-функции на Groq, упаковано в Docker.
 
-КОНТАКТЫ: email graywilsonwise@gmail.com, телефон +7 (911) 663-70-91,
+КОНТАКТЫ: email waalkerrr232@mail.ru, телефон +7 (911) 411-01-63,
 Telegram @EmeraldTower. На сайте есть форма обратной связи.
 `.trim();
